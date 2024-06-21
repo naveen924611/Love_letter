@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Cycle Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="content" style="display: none;">
+    
+        <div class="hearts5 Move">💖</div>
+        <div class="hearts6 Move">💖</div>
+        <div class="hearts7 Move">💖</div>
+        <div class="hearts8 Move">💖</div>
+        <div class="hearts9 Move">💖</div>
+        <div class="hearts10 Move">💖</div>
+        <div class="hearts11 Move">💖</div>
+        <div class="hearts12 Move">💖</div>
+        <div class="hearts13 Move">💖</div>
+        <div class="hearts14 Move">💖</div>
+        <div class="hearts15 Move">💖</div>
+        <div class="hearts16 Move">💖</div>
+        <div class="hearts17 Move">💖</div>
+
+        <div class="heading">
+            <h1><img src="image.png" alt="Logo"></h1>
+        </div>
+        <div class="fullframe">
+            <div class="frame">
+                <div class="letter s1 active">Hello.</div>
+                <div class="letter s2 ">Her love is a gentle breeze, softly caressing my soul with every whisper. It’s the warmth of a thousand suns, embracing me in a comforting glow. Her love is the melody in my heart, a symphony of joy and peace.</div>
+                <div class="letter s3">Her love is a lighthouse in the storm, guiding me safely through the darkest nights. It’s a garden in full bloom, filling my life with color and fragrance. Her love is a steady flame, unwavering and eternal.</div>
+                <div class="letter s4">Her love is a blanket on a cold night, wrapping me in tender care and warmth. It’s the first light of dawn, bringing hope and a new beginning each day. Her love is a deep ocean, vast and endless, with depths yet to be discovered.</div>
+                <div class="letter s5">It's you my love💝</div>
+            </div>
+            <div class="btns">
+            <!-- <button id="pre">Previous Card</button> -->
+            <button id="showButton">Next Card</button>
+            </div>
+        </div>
+    </div>
+    <p id="name"></p>
+    <audio id="background-music" loop>
+        <source src="Katchi Sera.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const answer = prompt("Will you marry me? (yes/no)");
+            if (answer && answer.toLowerCase() === "yes") {
+                document.getElementById('content').style.display = 'block';
+                
+                
+            } else {
+                alert("Sorry, you cannot view the content.");
+                window.location.href = "about:blank"; // Redirect to a blank page or show an error message
+            }
+
+            let currentCard = 0;
+            const cards = document.querySelectorAll('.letter');
+            const button = document.getElementById('showButton');
+            let musicStarted = false;
+
+            button.addEventListener('click', () => {
+                // Hide the current card
+                cards[currentCard].classList.remove('active');
+
+                // Start the music if it hasn't started yet
+                if (!musicStarted) {
+                    document.getElementById('background-music').play().catch(error => {
+                        console.log('Audio playback failed:', error);
+                    });
+                    musicStarted = true;
+                }
+
+                // Move to the next card, wrapping around to the first card if necessary
+                currentCard = (currentCard + 1) % cards.length;
+                if(currentCard === cards.length - 1) {
+                    button.innerHTML = "Start again";
+                    
+                    document.getElementById('name').innerHTML = "Vaishu 😚🫂";
+                } else {
+                    button.innerHTML = "Next card";
+                    document.getElementById('name').innerHTML = "";
+                }
+                // Show the next card
+                cards[currentCard].classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

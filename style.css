@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://i.pinimg.com/originals/05/59/94/05599424bb5a1b7819956d0288559697.gif");
+
+}
+
+.frame {
+    height: 360px;
+    width: 80%;
+    padding: 5px;
+    max-width: 560px;
+    background-color: rgb(219, 208, 194);
+    margin: 2px;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+    position: relative;
+}
+
+.fullframe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.letter {
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(119, 166, 166);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: scale(0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-shadow: 8 0 20px rgba(227, 5, 219, 0.836), 
+                 0 0 30px rgba(250, 110, 110, 0.4), 
+               
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.heading {
+    text-align: center;
+    font-family: sans-serif;
+}
+#name{
+    font-family: cursive;
+    font-size: 24px;
+    text-align: center;
+   
+}
+
+
+div img {
+    padding: 15px;
+    transition: 2s;
+    opacity: 0.5;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.hearts5 { top: 10%; right: 10%; }
+.hearts6 { top: 20%; left: 15%; }
+.hearts7 { top: 30%; right: 20%; }
+.hearts8 { top: 40%; left: 25%; }
+.hearts9 { top: 50%; right: 30%; }
+.hearts10 { top: 60%; left: 35%; }
+.hearts11 { top: 70%; right: 40%; }
+.hearts12 { top: 80%; left: 45%; }
+.hearts13 { top: 10%; right: 50%; }
+.hearts14 { top: 20%; left: 55%; }
+.hearts15 { top: 30%; right: 60%; }
+.hearts16 { top: 40%; left: 65%; }
+.hearts17 { top: 50%; right: 70%; }
+
+.Move {
+    zoom: 1.5;
+    display: inline;
+    position: absolute;
+    animation-name: move;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0.6;
+}
+
+@keyframes move {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(7px) translateY(7px) translateZ(2px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .frame {
+        height: 300px;
+        width: 90%;
+    }
+
+    .letter {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .hearts5, .hearts6, .hearts7, .hearts8, .hearts9, .hearts10, .hearts11, .hearts12, .hearts13, .hearts14, .hearts15, .hearts16, .hearts17 {
+        zoom: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .frame {
+        height: 250px;
+        width: 95%;
+    }
+
+    .letter {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+
+    .hearts5, .hearts6, .hearts7, .hearts8, .hearts9, .hearts10, .hearts11, .hearts12, .hearts13, .hearts14, .hearts15, .hearts16, .hearts17 {
+        zoom: 1;
+    }
+}
